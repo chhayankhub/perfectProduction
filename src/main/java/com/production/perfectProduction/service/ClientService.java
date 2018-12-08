@@ -8,4 +8,5 @@ import com.production.perfectProduction.entity.Client;
 public interface ClientService {
 	public Client addClient(ClientDto clientdto);
 	public List<Client> showClient();
+	public List<Client> getClientById(int id);
 }

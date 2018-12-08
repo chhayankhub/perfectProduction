@@ -37,4 +37,22 @@ public class FabricatorController {
 //		model.addAttribute("fabricators", fbrs);
 		return "dashboard";
 	}
+	
+	@RequestMapping(value= {"/addfabricator"},  method = RequestMethod.POST)
+	public String addFabricator (@ModelAttribute("fabricatordto") FabricatorDto fabricatordto, Model model) {
+		Fabricator fb = fbs.addFabricator(fabricatordto);
+		List<Fabricator> fbrs = fbs.getFabricator();
+		model.addAttribute("fabricatordto", new FabricatorDto());
+		model.addAttribute("allfabricator", fbrs);
+		return "fabricator";
+	}
+	
+	@RequestMapping(value= {"/fabricator"},  method = RequestMethod.GET)
+	public String fabricators (@ModelAttribute("fabricatordto") FabricatorDto fabricatordto, Model model) {
+		model.addAttribute("fabricatordto", new FabricatorDto());
+		List<Fabricator> fabricator = fbs.getFabricator();
+		model.addAttribute("allfabricator", fabricator);
+		return "fabricator";
+	}
+	
 }

@@ -8,4 +8,5 @@ public interface ClientDao {
 
 	public Client addClient(Client client);
 	public List<Client> getClients();
+	public List<Client> getClientFromDao(int id);
 }

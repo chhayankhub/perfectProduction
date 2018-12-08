@@ -1,6 +1,7 @@
 package com.production.perfectProduction.service;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -31,6 +32,11 @@ public class OrderServiceImpl implements OrderService{
 		odr.setUpdated_at(new Date());
 		odr.setRemark(orderdto.getRemark());
 		orderen.saveOrder(odr);
+	}
+	@Override
+	public List<Order> getOrders() {
+		// TODO Auto-generated method stub
+		return orderen.getOrders();
 	}
 	
 	

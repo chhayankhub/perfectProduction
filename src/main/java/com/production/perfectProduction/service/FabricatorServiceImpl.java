@@ -28,7 +28,10 @@ public class FabricatorServiceImpl implements FabricatorService {
 		fbe.setNumber(fb.getNumber());
 		fbe.setCreated_at(new Date());
 		fbe.setUpdated_at(new Date());
+		fbe.setPassword(fb.getPassword());
+		fbe.setPassword(fb.getUsername());
 		fbe = fbd.addFabricator(fbe);
+
 		return fbe;
 	}
 	

@@ -95,6 +95,14 @@
 										<form:input class="form-control panelinput" path="number" placeholder="Enter number"></form:input>	
 									</div>
 									<div class="form-group span3">
+										<label>Username</label>
+										<form:input class="form-control panelinput" path="username" placeholder="Enter username"></form:input>	
+									</div>
+									<div class="form-group span3">
+										<label>Password</label>
+										<form:input class="form-control panelinput" path="password" placeholder="Enter password"></form:input>	
+									</div>
+									<div class="form-group span3">
 										<label>Address</label>
 										<form:textarea class="form-control panelinput" path="address" placeholder="Enter address"></form:textarea>	
 									</div>
@@ -184,31 +192,22 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
+                                            <th>Name</th>
+                                            <th>Number</th>
+                                            <th>Description</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${clients}" var="client">
+                                               
                                         <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td>${client.id}</td>
+                                            <td>${client.name}</td>
+                                            <td>${client.number}</td>
+                                            <td>${client.description}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
+                                        </c:forEach> 
+                                     </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
@@ -239,10 +238,12 @@
 					</div>
 				</div>
 			</section>
-
-			<section id="copyright">
+<div class="span12">
+<section id="copyright">
 				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
 			</section>
+</div>
+			
 		</div>
 		<script src="themes/js/common.js"></script>
 		<script src="themes/js/jquery.flexslider-min.js"></script>

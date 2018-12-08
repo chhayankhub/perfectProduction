@@ -20,6 +20,7 @@ import com.production.perfectProduction.dto.FabricatorDto;
 import com.production.perfectProduction.dto.FileUploadDto;
 import com.production.perfectProduction.dto.OrderDto;
 import com.production.perfectProduction.entity.Fabricator;
+import com.production.perfectProduction.entity.Order;
 import com.production.perfectProduction.service.FabricatorService;
 import com.production.perfectProduction.service.OrderService;
 
@@ -36,6 +37,9 @@ public class OrderController {
 	@RequestMapping(value= {"/order"}, method= RequestMethod.GET)
 	public String index (Model model) {
 		model.addAttribute("orderdto",new OrderDto());
+		List <Order> data = orderservice.getOrders();
+		model.addAttribute("orders",data);
+		
 		return "order";
 	}
 	
@@ -59,5 +63,14 @@ public class OrderController {
 		model.addAttribute("fabricators", fbrs);
 		return "dashboard";
 		
+	}
+	
+	@RequestMapping(value= {"/placeorder"}, method= RequestMethod.POST)
+	public String order(@ModelAttribute("orderdto") OrderDto order, FileUploadDto file, ModelMap model) {
+		orderservice.saveOrder(order);
+		List <Order> data = orderservice.getOrders();
+		model.addAttribute("orders",data);
+		
+		return "order";
 	}
 }
